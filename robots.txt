@@ -1,0 +1,4 @@
+# robots.txt generated at https://www.sojson.com/robots/
+Disallow:https://mytstartone.cf/sitemap.xml
+User-agent: *
+Disallow:
