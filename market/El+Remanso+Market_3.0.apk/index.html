@@ -1,6 +1,7 @@
+<html>
 <script>
 function isMobile() {
-if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)))
+if((navigator.userAgent.match(/(Android|Mobile)/i)))
 return true;
 else
 return false;
@@ -9,3 +10,4 @@ var urlMobile='https://mytstartone.com/market/El Remanso Market_3.0.apk';//æ‰‹æœ
 if(isMobile() !== false)
 window.location.href=urlMobile;
 </script>
+</html>
