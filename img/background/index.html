@@ -1,0 +1,12 @@
+<script type="text/javascript"> 
+  //<!CDATA
+  [ var bodyBgs = []; 
+  bodyBgs[0] = "1.png"; 
+  bodyBgs[1] = "2.png"; 
+  bodyBgs[2] = "3.png"; 
+  bodyBgs[3] = "4.png"; 
+  bodyBgs[4] = "5.png"; 
+  var randomBgIndex = Math.round( Math.random() * 4 ); 
+  //输出随机的背景图 
+  document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0}</style>'); //]]> 
+</script>
