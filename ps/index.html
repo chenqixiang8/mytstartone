@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>在线图像编辑器-MytStarTone</title>
+	<meta charset="gbk" />
+	<link rel="stylesheet" type="text/css" href="src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="src/css/iconfont.css">
+</head>
+
+<body oncontextmenu="return false" onselectstart="return false">
+	<div id="wrapper">
+		<header id="header">
+			<input type="file" accept="image/*" name="imageFile" style="display: none;" />
+			<div id="home">
+				<span class="iconfont">&#xe603;</span>
+			</div>
+			<nav id="header-nav">
+				<ul>
+					<li>
+						<span>文件</span>
+						<ul class="nav-sub">
+							<li id="openFile">打开文件</li>
+							<li id="openUrl">从URL打开</li>
+							<li id="saveImage">保存图片</li>
+						</ul>
+					</li>
+					<li>
+						<span>图像</span>
+						<ul class="nav-sub">
+							<li>图像变换</li>
+							<li>图像增强</li>
+							<li>图像美化</li>
+						</ul>
+					</li>
+					<li>
+						<span>滤镜</span>
+						<ul class="nav-sub">
+							<li>反色滤镜</li>
+							<li>黑白底片</li>
+							<li>灰度滤镜</li>
+							<li>二值图像</li>
+							<li>柔化滤镜</li>
+							<li>复古滤镜</li>
+							<li>铅笔画</li>
+							<li>版画</li>
+							<li>黑白版画</li>
+							<li>熔铸滤镜</li>
+							<li>冰冻滤镜</li>
+						</ul>
+					</li>
+					<li>
+						<span>工具</span>
+						<ul class="nav-sub">
+							<li>剪切</li>
+							<li>抠图</li>
+							<li>画笔</li>
+							<li>尺子</li>
+							<li>橡皮擦</li>
+							<li>吸管工具</li>
+							<li>填充工具</li>
+							<li>文本工具</li>
+							<li>绘图工具</li>
+						</ul>
+					</li>
+					<li>
+						<span>设置</span>
+					</li>
+				</ul>
+			</nav>
+			<div id="toggle" class="iconfont"><span style="display: none;">&#xe738;</span><span>&#xe739;</span></div>
+			<div id="header-logo">MytStarTone</div>
+		</header>
+		<main id="main">
+			<nav id="main-nav">
+				<div class="splitter-left" style="position: absolute; top: 0"></div>
+				<ul>
+					<li title="图像变换" id="txbh"><span class="iconfont">&#xe678;</span></li>
+					<li title="图像增强" id="txzq"><span class="iconfont">&#xe65f;</span></li>
+					<li title="剪切" id="jq"><span class="iconfont">&#xe634;</span></li>
+					<li title="抠图" id="kt"><span class="iconfont">&#xe683;</span></li>
+					<li title="拾色器" id="ssq"><span class="iconfont">&#xe64e;</span></li>
+					<li title="画笔" id="hb"><span class="iconfont">&#xe60d;</span></li>
+					<li title="油漆桶" id="yqt"><span class="iconfont">&#xe679;</span></li>
+					<li title="橡皮擦" id="xpc"><span class="iconfont">&#xe698;</span></li>
+					<li title="尺子" id="cz"><span class="iconfont">&#xe62c;</span></li>
+					<li title="滤镜" id="lj"><span class="iconfont">&#xe669;</span></li>
+					<li title="图像美化" id="mh"><span class="iconfont">&#xe62a;</span></li>
+					<li title="文本工具" id="wbgj"><span class="iconfont">&#xe601;</span></li>
+					<li title="绘图工具" id="htgj"><span class="iconfont">&#xe606;</span></li>
+				</ul>
+			</nav>
+			<div id="main-panel">
+				<div class="splitter-left"></div>
+				<span class="close">×</span>
+				<div id="main-panel-title">图像处理</div>
+				<div id="main-panel-content"></div>
+				<div id="main-panel-oper">
+					<button>取消</button>
+					<button>应用</button>
+				</div>
+			</div>
+			<div id="main-content" onmousewheel="return false">
+				<div id="contains"></div>
+			</div>
+			<div id="main-right" class="toggle-show">
+				<div class="splitter-right"></div>
+				<div id="history" class="main-right-contains">
+					<div id="history-header">历史记录</div>
+					<div id="history-content">
+						<ul></ul>
+					</div>
+					<div id="history-footer">
+						<div class="iconfont history-oper">&#xe7c1; 上一步</div>
+						<div class="iconfont history-oper">&#xe604; 下一步</div>
+					</div>
+				</div>
+				<div class="splitter-right"></div>
+				<div id="layer" class="main-right-contains">
+					<div id="layer-header">图层</div>
+					<div id="layer-content">
+						<ul></ul>
+					</div>
+					<div id="layer-footer">
+						<div class="iconfont layer-oper">&#xe602;</div>
+						<div class="iconfont layer-oper">&#xe684;</div>
+						<div class="iconfont layer-oper">&#xe647;</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<div class="splitter-left"></div>
+			<div id="content-info">
+				<div id="image-size">1200*1900px</div>
+				<div id="pos-info">X：<span>50</span>Y：<span>50</span></div>
+				<div id="scale">
+					<span class="iconfont">&#xe6c0;</span>
+					<input type="range" name="range" min="0.1" max="5" step="0.1" value="1" />
+					<span class="iconfont">&#xe684;</span>
+					<input type="text" name="text" value="100%">
+				</div>
+			</div>
+			<div class="splitter-right toggle-show"></div>
+		</footer>
+	</div>
+	<dialog id="warning">
+		<div class="model">
+			<div class="model-header">
+				<span>警告框</span>
+				<span class="close">×</span>
+			</div>
+			<div class="splitter-right"></div>
+			<div class="model-content">
+				<p>是否删除当前画布？</p>
+			</div>
+			<div class="model-footer">
+				<button>取消</button>
+				<button>确定</button>
+			</div>
+		</div>
+	</dialog>
+	<dialog id="inputUrl">
+		<div class="model">
+			<div class="model-header">
+				<span>打开图像网址</span>
+				<span class="close">×</span>
+			</div>
+			<div class="splitter-right"></div>
+			<div class="model-content">
+				<input type="url" name="imgUrl" placeholder="在此处输入图片链接" />
+			</div>
+			<div class="model-footer">
+				<button>取消</button>
+				<button>加载</button>
+			</div>
+		</div>
+	</dialog>
+	<dialog id="download">
+		<div class="model">
+			<div class="model-header">
+				<span>下载</span>
+				<span class="close">×</span>
+			</div>
+			<div class="splitter-right"></div>
+			<div class="model-content">
+				<div id="download_img">
+					<img src="" alt="缩略图" />
+				</div>
+				<div id="download_oper">
+					<div>
+						<p>文件名</p>
+						<input type="text" name="img_name" value="image" />
+						<span id="noun_suffix">.png</span>
+					</div>
+					<div id="img_type">
+						<p>文件类型</p>
+						<input type="button" name="png" value="png" class="active" />
+						<input type="button" name="jpg" value="jpeg" />
+						<input type="button" name="webp" value="webp" />
+					</div>
+					<div id="quality" style="visibility:hidden;">
+						<p>品质</p>
+						<input type="range" name="quality_range" min="0" max="1" step="0.1" value="0.7" />
+						<span id="quality_text">70%</span>
+					</div>
+					<div>
+						<label for="img_width">图像宽度</label>
+						<input type="number" id="img_width" value="0" />
+					</div>
+					<div>
+						<label for="img_height">图像长度</label>
+						<input type="number" id="img_height" value="0" />
+					</div>
+				</div>
+			</div>
+			<div class="model-footer">
+				<button>取消</button>
+				<button>下载</button>
+			</div>
+		</div>
+	</dialog>
+	<!-- 图像变换面板 -->
+	<template id="txbh-template">
+		<div id="txhb-panel" class="panel">
+			<div>
+				<label for="img-width">图像宽度：</label>
+				<input type="number" id="img-width" min="0" disabled />
+			</div>
+			<div>
+				<label for="img-height">图像长度：</label>
+				<input type="number" id="img-height" min="0" disabled />
+			</div>
+			<div>
+				<label for="rotateAngle">旋转角度：</label>
+				<input type="number" id="rotateAngle" min="-360" max="360" value="0" disabled />
+			</div>
+			<div>
+				<label for="img-posX">图像位置(X)：</label>
+				<input type="number" id="img-posX" min="0" disabled />
+			</div>
+			<div>
+				<label for="img-posY">图像位置(Y)：</label>
+				<input type="number" id="img-posY" min="0" disabled />
+			</div>
+		</div>
+	</template>
+	<!-- 图像增强面板 -->
+	<template id="txzq-template">
+		<div id="txzq-panel" class="panel">
+			<div>
+				<label for="sharpen">锐化：</label>
+				<input type="range" id="sharpen" min="-1" max="1" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="hue">色调：</label>
+				<input type="range" id="hue" min="0" max="2" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="stauration">饱和度：</label>
+				<input type="range" id="stauration" min="0" max="2" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="brightness">亮度：</label>
+				<input type="range" id="brightness" min="-255" max="255" step="1" value="0" />
+			</div>
+			<div>
+				<label for="contrast">对比度：</label>
+				<input type="range" id="contrast" min="0.3" max="1.7" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="R-Channel">R通道：</label>
+				<input type="range" id="R-Channel" min="0" max="2" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="G-Channel">G通道：</label>
+				<input type="range" id="G-Channel" min="0" max="2" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="B-Channel">B通道：</label>
+				<input type="range" id="B-Channel" min="0" max="2" step="0.01" value="1" />
+			</div>
+			<div>
+				<label for="opacity">透明度：</label>
+				<input type="range" id="opacity" min="0" max="1" step="0.01" value="1" />
+			</div>
+		</div>
+	</template>
+	<!-- 剪切面板 -->
+	<template id="jq-template">
+		<div id="jq-panel" class="panel">
+			<div>
+				<label for="jq-width">截取宽度：</label>
+				<input type="number" id="jq-width" min="0" value="0" disabled />
+			</div>
+			<div>
+				<label for="jq-height">截取长度：</label>
+				<input type="number" id="jq-height" min="0" value="0" disabled />
+			</div>
+			<div>
+				<label for="jq-posX">截取位置(X)：</label>
+				<input type="number" id="jq-posX" min="0" value="0" disabled />
+			</div>
+			<div>
+				<label for="jq-posY">截取位置(Y)：</label>
+				<input type="number" id="jq-posY" min="0" value="0" disabled />
+			</div>
+		</div>
+	</template>
+	<!-- 抠图面板 -->
+	<template id="kt-template">
+		<div id="kt-panel" class="panel">
+			<div>
+				<span class="iconfont icon-koutu ">&nbsp;自由抠图</span>
+			</div>
+		</div>
+	</template>
+	<!-- 拾色器面板 -->
+	<template id="ssq-template">
+		<div id="ssq-panel" class="panel">
+			<div>
+				<label for="ssq-posX">目标位置(X)：</label>
+				<input type="number" id="ssq-posX" min="0" value="0" disabled />
+			</div>
+			<div>
+				<label for="ssq-posY">目标位置(Y)：</label>
+				<input type="number" id="ssq-posY" min="0" value="0" disabled />
+			</div>
+			<div>
+				<label for="ssq-color">目标颜色：</label>
+				<input type="color" id="ssq-color" />
+			</div>
+		</div>
+	</template>
+	<!-- 画笔面板 -->
+	<template id="hb-template">
+		<div id="hb-panel" class="panel">
+			<div>
+				<label for="hb-size">画笔大小：</label>
+				<input type="range" id="hb-size" min="1" max="100" value="3" step="1" />
+			</div>
+			<div>
+				<label for="hb-color">画笔颜色：</label>
+				<input type="color" id="hb-color" value="#ff0000" />
+			</div>
+		</div>
+	</template>
+	<!-- 油漆桶面板 -->
+	<template id="yqt-template">
+		<div id="yqt-panel" class="panel">
+			<div>
+				<label for="yqt-power">力度：</label>
+				<input type="range" id="yqt-power" min="1" max="255" value="30" step="1" />
+			</div>
+			<div>
+				<label for="yqt-color">颜色：</label>
+				<input type="color" id="yqt-color" value="#ffffff" />
+			</div>
+		</div>
+	</template>
+	<!-- 橡皮擦面板 -->
+	<template id="xpc-template">
+		<div id="xpc-panel" class="panel">
+			<div>
+				<label for="xpc-size">大小：</label>
+				<input type="range" id="xpc-size" min="1" max="100" value="3" step="1" />
+			</div>
+			<div>
+				<label for="xpc-power">力度：</label>
+				<input type="range" id="xpc-power" min="0" max="1" value="0.7" step="0.01" />
+			</div>
+		</div>
+	</template>
+	<!-- 尺子面板 -->
+	<template id="cz-template">
+		<div id="cz-panel" class="panel">
+			<div>
+				<label for="cz-start">起点坐标：</label>
+				<input type="text" id="cz-start" value="(0,0)" disabled />
+			</div>
+			<div>
+				<label for="cz-end">终点坐标：</label>
+				<input type="text" id="cz-end" value="(0,0)" disabled />
+			</div>
+			<div>
+				<label for="cz-dist">长度：</label>
+				<input type="text" id="cz-dist" value="0" disabled />
+			</div>
+		</div>
+	</template>
+	<!-- 滤镜面板 -->
+	<template id="lj-template">
+		<div id="lj-panel" class="panel"></div>
+	</template>
+	<!-- 模糊面板 -->
+	<template id="mh-template">
+		<div id="mh-panel" class="panel">
+			<div>
+				<label for="mh-size">画笔大小：</label>
+				<input type="range" id="mh-size" min="1" max="100" value="3" step="1" />
+			</div>
+			<div>
+				<label for="mh-kernel">核大小：</label>
+				<input type="range" id="mh-kernel" min="1" max="10" value="1" step="1" />
+			</div>
+		</div>
+	</template>
+	<!-- 文本工具面板 -->
+	<template id="wbgj-template">
+		<div id="wbgj-panel" class="panel">
+			<div id="wbgj-create">
+				<span>创建文本图层</span>
+			</div>
+			<div id="wbgj-trans">
+				<span>栅栏化</span>
+			</div>
+			<div>
+				<label for="wbgj-font-family">字体样式：</label>
+				<select id="wbgj-font-family">
+					<option value="sans-serif" selected="">sans-serif</option>
+					<option value="Arial">Arial</option>
+					<option value="Arial Black">Arial Black</option>
+					<option value="Arial Narrow">Arial Narrow</option>
+					<option value="Impact">Impact</option>
+					<option value="Georgia">Georgia</option>
+					<option value="微软雅黑">微软雅黑</option>
+					<option value="宋体">宋体</option>
+					<option value="Times New Roman">Times New Roman</option>
+				</select>
+			</div>
+			<div>
+				<label for="wbgj-font-weight">字体粗细：</label>
+				<select id="wbgj-font-weight">
+					<option value="100">变细</option>
+					<option value="400" selected>正常</option>
+					<option value="900">加粗</option>
+				</select>
+			</div>
+			<div>
+				<label for="wbgj-text-style">文字风格：</label>
+				<select id="wbgj-text-style">
+					<option value="1" selected>填充</option>
+					<option value="0">描边</option>
+				</select>
+			</div>
+			<div>
+				<label for="wbgj-text-size">文字大小：</label>
+				<input type="number" id="wbgj-text-size" min="1" max="100" step="1" value="20">
+			</div>
+			<div>
+				<label for="wbgj-text-color">文字颜色：</label>
+				<input type="color" id="wbgj-text-color" value="#000000" />
+			</div>
+		</div>
+	</template>
+	<!-- 绘图工具面板 -->
+	<template id="htgj-template">
+		<div id="htgj-panel" class="panel">
+			<div>
+				<span class="iconfont icon-juxing">&nbsp;&nbsp;绘制矩形</span>
+			</div>
+			<div>
+				<span class="iconfont icon-yuanxing">&nbsp;&nbsp;绘制圆形</span>
+			</div>
+			<div>
+				<span class="iconfont icon-ziyouhuizhi">&nbsp;&nbsp;自由绘制</span>
+			</div>
+			<div>
+				<span>栅栏化</span>
+			</div>
+		</div>
+	</template>
+
+	<script type="text/javascript" src="./src/js/layer/ImageLayer.js"></script>
+	<script type="text/javascript" src="./src/js/layer/TextLayer.js"></script>
+	<script type="text/javascript" src="./src/js/layer/GraphLayer.js"></script>
+	<script type="text/javascript" src="src/js/pageConfig.js"></script>
+	<script type="text/javascript" src="src/js/tools.js"></script>
+	<script type="text/javascript">
+		window.onload = () => {
+			if (navigator.userAgent.indexOf('AppleWebKit') === -1) {
+				document.body.removeChild(document.body.firstElementChild);
+				alert("页面涉及大量HTML5内容，请使用最新版谷歌浏览器打开！！！");
+				return;
+			}
+			pageConfig.bindEvent();
+			tools.bindEvent();
+		}
+	</script>
+</body>
+
+</html>
