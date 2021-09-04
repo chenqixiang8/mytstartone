@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="openshit.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://mytstartone.cf/image.png" />
+    <link rel="icon" sizes="any" mask href="https://mytstartone.cf/image.png" />
     <script src="dom2.js" charset="utf-8"></script>
     <script src="jszip.min.js" charset="utf-8"></script>
     <script src="bezier-easing.js" charset="utf-8"></script>
     <script src="./easingFunctions.js" charset="utf-8"></script>
-
     <script src="./utils.js" charset="utf-8"></script>
     <script src="./menu.js" charset="utf-8"></script>
     <script src="./sources.js" charset="utf-8"></script>
@@ -27,13 +28,13 @@
         <div class="menubar">
           <div class="logo">MytStarTone</div>
           <input type="file" accept=".oshit" class="hidden-accessible" id="load">
-          <button type="button" class="menu-btn" id="file">File</button>
-          <button type="button" class="menu-btn" id="help">Help</button>
+          <button type="button" class="menu-btn" id="file">文件</button>
+          <button type="button" class="menu-btn" id="help">帮助</button>
         </div>
         <div class="side-panel">
           <div class="sources">
             <input type="file" accept="video/*,audio/*,image/*" class="hidden-accessible" title="Add a source" id="add" multiple>
-            <label class="add source" for="add"><i class="material-icons">add</i></label>
+            <label class="add source" for="add"><i class="material-icons">添加</i></label>
           </div>
           <div class="properties" id="properties"></div>
         </div>
@@ -73,7 +74,7 @@
     <div class="modal-cover" id="modal-cover">
       <div class="modal" id="vid-settings-modal">
         <div class="header">
-          <h1 class="title">Video settings</h1>
+          <h1 class="title">视频设置</h1>
           <button type="button" class="close" title="Close (esc)"><i class="material-icons">close</i></button>
         </div>
         <div class="content text-content">
@@ -89,21 +90,21 @@
       <div class="modal" id="help-modal">
         <div class="header">
           <h1 class="title">How to use</h1>
-          <button type="button" class="close" title="Close (esc)"><i class="material-icons">close</i></button>
+          <button type="button" class="close" title="Close (esc)"><i class="material-icons">关闭</i></button>
         </div>
         <div class="content text-content">
-          <p>OpenShit is not in the mood of being usable today.</p>
+          <p>MytStarTone 今天没有心情使用。</p>
         </div>
       </div>
       <div class="modal" id="shortcuts-modal">
         <div class="header">
           <h1 class="title">Keyboard shortcuts</h1>
-          <button type="button" class="close" title="Close (esc)"><i class="material-icons">close</i></button>
+          <button type="button" class="close" title="Close (esc)"><i class="material-icons">关闭</i></button>
         </div>
         <div class="content text-content">
-          <p>The <code>command</code> is accepted as a substitute for the control key on Macs.</p>
+          <p>The <code>command</code>被接受作为 Mac 上控制键的替代品。</p>
           <dl>
-            <dt>Play/Pause</dt>
+            <dt>播放/暂停</dt>
             <dd><code>space</code></dd>
             <dt>Zoom in</dt>
             <dd><code>=</code> or <code>+</code> if your keyboard has such a key</dd>
