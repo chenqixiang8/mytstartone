@@ -83,3 +83,7 @@ window.location.href=urlMobile;
             }
         }
 
+
+
+if(self != top)
+top.location.replace(self.location);
