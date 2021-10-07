@@ -4,6 +4,17 @@
 <link rel="stylesheet" href="/index.css">
 <link rel="shortcut icon" type="image/x-icon" href="https://mytstartone.cf/image.png" />
 <link rel="icon" sizes="any" mask href="https://mytstartone.cf/image.png" />
+<script>
+function isMobile() {
+if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)))
+return true;
+else
+return false;
+}
+var urlMobile='https://m.mytstartone.cf/en';//手机跳转的页面
+if(isMobile() !== false)
+window.location.href=urlMobile;
+</script>
 </head>
 <nav class="top-bar" data-topbar>
 <ul class="title-area">
